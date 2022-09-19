@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { Routes, Route } from "react-router-dom";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+import Error from './pages/Error';
+import Login from "./pages/Login";
+import UserDetails from "./pages/UserDetails";
+import RegisterUser from "./pages/RegisterUser";
+import { ToastContainer } from "react-bootstrap";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToastContainer />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register-user" element={<RegisterUser />} />
+        <Route path="/user-details" element={<UserDetails />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
     </div>
   );
 }
