@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { legacy_createStore as createStore } from 'redux';
 
 import users from './reducers/UserReducer';
-import loginNow from "./reducers/loginReducer";
+import loginNow from "./reducers/LoginReducer";
 
 const allReducers = combineReducers(
     {

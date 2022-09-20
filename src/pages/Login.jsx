@@ -8,7 +8,10 @@ import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 
-const Login = () => {
+import { connect } from 'react-redux';
+import { storeLoginUser } from '../redux/Actions';
+
+const Login = (props) => {
 
     const navigate = useNavigate();
     const [inpval, setInpval] = useState({
@@ -31,9 +34,6 @@ const Login = () => {
     const addData = (e) => {
         e.preventDefault();
 
-        const getuserArr = localStorage.getItem("users");
-        console.log(getuserArr);
-
         const { email, password } = inpval;
         if (email === "") {
             toast.error('email field is requred', {
@@ -52,26 +52,40 @@ const Login = () => {
                 position: "top-center",
             });
         } else {
+            // const getuserArr = localStorage.getItem("users");
+            // console.log(getuserArr);
+            // if (getuserArr && getuserArr.length) {
+            //     const userdata = JSON.parse(getuserArr);
+            //     const userlogin = userdata.filter((el, k) => {
+            //         return el.email === email && el.password === password
+            //     });
 
-            if (getuserArr && getuserArr.length) {
-                const userdata = JSON.parse(getuserArr);
-                const userlogin = userdata.filter((el, k) => {
-                    return el.email === email && el.password === password
-                });
-
-                if (userlogin.length === 0) {
-                    //alert("Invalid user details");
-                    <Alert dismissible variant="danger">
-                        <Alert.Heading>Oh snap! User details not found!!</Alert.Heading>
-                        <p>
-                            Register once and enter valid user details.
-                        </p>
-                    </Alert>
-                } else {
-                    console.log("user login succesfully");
-                    localStorage.setItem("user_login", JSON.stringify(userlogin));
-                    navigate("/user-details");
-                }
+            //     if (userlogin.length === 0) {
+            //         return alert("Invalid user details");
+            //         <Alert dismissible variant="danger">
+            //             <Alert.Heading>Oh snap! User details not found!!</Alert.Heading>
+            //             <p>
+            //                 Register once and enter valid user details.
+            //             </p>
+            //         </Alert>
+            //     } else {
+            //         console.log("User logged in succesfully");
+            //         localStorage.setItem("user_login", JSON.stringify(userlogin));
+            //         navigate("/user-details");
+            //     }
+            // }
+            
+            let allUsers = Object.assign([], props.usersList);
+            const loginUser = allUsers.filter((el, k) => {
+                return el.email === email && el.password === password
+            });
+            console.log(loginUser);
+            if (loginUser.length === 0) {
+                return alert("Invalid user details");
+            } else {
+                console.log("User logged in succesfully");
+                localStorage.setItem("login_user", JSON.stringify(loginUser));
+                navigate("/user-details");
             }
         }
     }
@@ -108,4 +122,18 @@ const Login = () => {
     );
 }
 
-export default Login;
+function mapStateToProps(store) {
+    console.log("store", store);
+    return {
+        loginUser: store.loginNow.loginUser,                       // this will change to "store.users.list" if multiple reducers are added.
+        usersList: store.users.list
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        storeLoginUser: (data) => { dispatch(storeLoginUser(data)) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -11,32 +11,35 @@ const UserDetails = () => {
 
     const [show, setShow] = useState(false);
     var todaysDate = new Date().toISOString().slice(0, 10);
-    console.log("Today's Date ::" + todaysDate);
+    // console.log("Today's Date ::" + todaysDate);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const Birthday = () => {
-        const getUser = localStorage.getItem("user_login");
+        const getUser = localStorage.getItem("login_user");
+        
         if (getUser && getUser.length) {
             const user = JSON.parse(getUser);
+            console.log(user);
             setLoginData(user);
+            console.log(JSON.stringify(logindata[0]));
 
             const userbirth = logindata.map((el, k) => {
                 return el.dob === todaysDate;
             });
-
-            if (userbirth) {
+            console.log(userbirth);
+            if (userbirth[0]) {
                 setTimeout(() => {
                     console.log(`Today is the Bday of ${logindata[0].name}!!`);
                     handleShow();
-                }, 3000)
+                }, 3000);
             }
         }
     }
 
-    const userlogout = () => {
-        localStorage.removeItem("user_login")
+    const userLogout = () => {
+        localStorage.removeItem("login_user");
         history("/");
     }
 
@@ -51,7 +54,7 @@ const UserDetails = () => {
                     <>
                         <h2>User Details</h2>
                         <h3>Hi!! {logindata[0].name}</h3>
-                        <Button onClick={userlogout}><LogoutIcon /> LogOut</Button>
+                        <Button onClick={userLogout}><LogoutIcon /> LogOut</Button>
                         {
                             logindata[0].dob === todaysDate ?
                                 <Modal show={show} onHide={handleClose}>
