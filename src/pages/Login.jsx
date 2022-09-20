@@ -74,7 +74,7 @@ const Login = (props) => {
             //         navigate("/user-details");
             //     }
             // }
-            
+
             let allUsers = Object.assign([], props.usersList);
             const loginUser = allUsers.filter((el, k) => {
                 return el.email === email && el.password === password
@@ -84,6 +84,7 @@ const Login = (props) => {
                 return alert("Invalid user details");
             } else {
                 console.log("User logged in succesfully");
+                props.storeLoginUser(loginUser);
                 localStorage.setItem("login_user", JSON.stringify(loginUser));
                 navigate("/user-details");
             }
