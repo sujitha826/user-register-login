@@ -40,15 +40,15 @@ const Login = () => {
                 position: "top-center",
             });
         } else if (!email.includes("@")) {
-            toast.error('plz enter valid email addres', {
+            toast.error('Plz enter valid email addres', {
                 position: "top-center",
             });
         } else if (password === "") {
-            toast.error('password field is requred', {
+            toast.error('Password field is requred', {
                 position: "top-center",
             });
         } else if (password.length < 5) {
-            toast.error('password length greater five', {
+            toast.error('Password length should be greater than five', {
                 position: "top-center",
             });
         } else {

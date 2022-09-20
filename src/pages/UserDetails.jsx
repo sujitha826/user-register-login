@@ -11,23 +11,24 @@ const UserDetails = () => {
 
     const [show, setShow] = useState(false);
     var todaysDate = new Date().toISOString().slice(0, 10);
+    console.log("Today's Date ::" + todaysDate);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const Birthday = () => {
-        const getuser = localStorage.getItem("user_login");
-        if (getuser && getuser.length) {
-            const user = JSON.parse(getuser);
-
+        const getUser = localStorage.getItem("user_login");
+        if (getUser && getUser.length) {
+            const user = JSON.parse(getUser);
             setLoginData(user);
+
             const userbirth = logindata.map((el, k) => {
-                return el.date === todaysDate;
+                return el.dob === todaysDate;
             });
 
             if (userbirth) {
                 setTimeout(() => {
-                    console.log("Today is the Bday of user!!");
+                    console.log(`Today is the Bday of ${logindata[0].name}!!`);
                     handleShow();
                 }, 3000)
             }
@@ -41,24 +42,24 @@ const UserDetails = () => {
 
     useEffect(() => {
         Birthday();
-    }, [])
+    }, []);
 
     return (
         <>
             {
                 logindata.length === 0 ? "error" :
                     <>
-                        <h1>User Details</h1>
-                        <h1>{logindata[0].name}</h1>
-                        <Button onClick={userlogout}><LogoutIcon />LogOut</Button>
+                        <h2>User Details</h2>
+                        <h3>Hi!! {logindata[0].name}</h3>
+                        <Button onClick={userlogout}><LogoutIcon /> LogOut</Button>
                         {
-                            logindata[0].date === todaysDate ?
+                            logindata[0].dob === todaysDate ?
                                 <Modal show={show} onHide={handleClose}>
                                     <Modal.Header closeButton>
                                         <Modal.Title>{logindata[0].name} 😄</Modal.Title>
                                     </Modal.Header>
 
-                                    <Modal.Body>Wish you many many happy returns of the day ! 🍰</Modal.Body>
+                                    <Modal.Body>Wish you many many happy returns of the day!! Have a wonderful and joyful day..🍰</Modal.Body>
 
                                     <Modal.Footer>
                                         <Button variant="secondary" onClick={handleClose}>
