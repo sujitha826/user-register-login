@@ -1,12 +1,12 @@
 import React from 'react';
-import login from './login.jpg';
+import login_bg from './login_bg.jpg';
 
 const SignImg = () => {
     return (
         <>
-            <div className="right_data mt-5" style={{ width: "100%" }}>
-                <div className="sign_img mt-5">
-                    <img src={login} style={{ maxWidth: 400 }} alt="" />
+            <div className="right_data" style={{ width: "100%", height: "100%" }}>
+                <div className="sign_img">
+                    <img src={login_bg} style={{ maxWidth: 900, height: "100%" }} alt="" />
                 </div>
             </div>
         </>

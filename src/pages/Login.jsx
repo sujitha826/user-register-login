@@ -7,6 +7,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
+import PersonIcon from '@mui/icons-material/Person';
+import HttpsIcon from '@mui/icons-material/Https';
+import logo from '../components/logo.jpg';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GoogleIcon from '@mui/icons-material/Google';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 import { connect } from 'react-redux';
 import { storeLoginUser } from '../redux/Actions';
@@ -86,7 +93,7 @@ const Login = (props) => {
                 console.log("User logged in succesfully");
                 props.storeLoginUser(loginUser);
                 localStorage.setItem("login_user", JSON.stringify(loginUser));
-                navigate("/user-details");
+                navigate("/dashboard");
             }
         }
     }
@@ -96,23 +103,35 @@ const Login = (props) => {
             <div className="container mt-3">
                 <section className='d-flex justify-content-between'>
                     <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-                        <h3 className='text-center col-lg-6'>Sign In</h3>
+                        <h3 className='text-center mb-2 col-lg-6'>WELCOME TO </h3>
+                        <img src={logo} className="App-logo" alt="logo"></img>
+                        <p className='welcome-text'>Login to get in the moment updates on the things <br></br>that interest you.</p>
                         <Form >
 
-                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Group className="mb-4 mt-4 col-lg-7" controlId="formBasicEmail">
                                 <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter email" />
                             </Form.Group>
 
-                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
+                            <Form.Group className="mb-4 mt-4 col-lg-7" controlId="formBasicPassword">
                                 <Form.Control type="password" name='password' onChange={getdata} placeholder="Password" />
                             </Form.Group>
 
                         </Form>
                         <div className='action-container'>
-                            <button className='submit-butn' onClick={addData} style={{ background: "rgb(66, 184, 127)" }} type="submit">
-                                Submit
+                            <button className='submit-butn' onClick={addData} style={{ background: "rgb(194, 47, 47)", width: "58%" }} type="submit">
+                                SIGN IN
                             </button>
-                            <p className='message-register'>Don't have a registered account? <span><Link to="/register-user"><HowToRegIcon /> Register</Link></span></p>
+                            <p className='message-register'>Don't have a registered account? <span><Link to="/register-user">  <HowToRegIcon /> Sign Up</Link></span></p>
+                        </div>
+
+                        <div style={{ borderTop: "3px solid #fff ", marginLeft: 5, marginRight: 15, width: "55%", marginTop: 30 }}><hr />
+                        Continue with social media
+                            <div className="other-links">
+                                <LinkedInIcon />
+                                <TwitterIcon />
+                                <FacebookIcon />
+                                <GoogleIcon />
+                            </div>
                         </div>
                     </div>
                     <SignImg />

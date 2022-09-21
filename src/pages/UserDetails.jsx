@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { connect } from 'react-redux';
 
+import Header from '../components/Header';
+
 const UserDetails = (props) => {
 
     const [loginData, setLoginData] = useState([]);
@@ -63,6 +65,7 @@ const UserDetails = (props) => {
 
     return (
         <>
+            <Header />
             {
                 loginData.length === 0 ? "Oops!!! Login user not found..Please re-login after a while" :
                     <>

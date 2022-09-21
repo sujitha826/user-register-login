@@ -6,14 +6,17 @@ import { v4 as uuid } from 'uuid';
 
 import { storeUsersList } from '../redux/Actions';
 import Login from "./Login";
+import logo from '../components/logo.jpg';
+import withLogo from "../components/HocLogo";
+
 
 function RegisterUser(props) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [phone, setPhone] = useState("");
+    const [username, setUsername] = useState("");
     const [dob, setDob] = useState("");
-    const [profession, setProfession] = useState("");
+    const [dept, setDept] = useState("");
 
     const [flag, setFlag] = useState(false);
     const [login, setLogin] = useState(false);
@@ -23,7 +26,7 @@ function RegisterUser(props) {
     function handleFormSubmit(e) {
         e.preventDefault();
 
-        if (!name || !email || !password || !phone || !dob || !profession) {
+        if (!name || !email || !password || !username || !dob || !dept) {
             setFlag(true);
 
         } else {
@@ -45,7 +48,7 @@ function RegisterUser(props) {
             let uList = Object.assign([], props.usersList);                 // Extracting store list from props(array)
             let userExists = uList.findIndex((item) => { return item.email === email });
             if (userExists === -1) {
-                let newUserData = { name: name, email: email, password: password, phone: phone, dob: dob, profession: profession };
+                let newUserData = { name: name, email: email, password: password, username: username, dob: dob, department: dept };
                 newUserData.id = name.slice(0, 2) + uuid().slice(0, 2);
                 uList.push(newUserData);
                 props.storeUsersList(uList);                              // Updating store
@@ -67,10 +70,10 @@ function RegisterUser(props) {
     return (
         <>
             <div>
+                <h3>Registration</h3>
+                <div className="header-logo"><img src={logo} className="register-logo" alt="logo"></img></div>
                 {!login ? (
                     <form onSubmit={handleFormSubmit}>
-                        <h3>Register</h3>
-
                         <div className="form-group" id="input-custom">
                             <label>Name</label>
                             <input
@@ -103,12 +106,12 @@ function RegisterUser(props) {
                         </div>
 
                         <div className="form-group" id="input-custom">
-                            <label>Phone No.</label>
+                            <label>Preferrred Username.</label>
                             <input
-                                type="Phone"
+                                type="text"
                                 className="form-control"
-                                placeholder="Enter contact no"
-                                onChange={(event) => setPhone(event.target.value)}
+                                placeholder="Enter username"
+                                onChange={(event) => setUsername(event.target.value)}
                             />
                         </div>
 
@@ -123,21 +126,22 @@ function RegisterUser(props) {
                         </div>
 
                         <div className="form-group" id="input-custom">
-                            <label>Choose your Profession</label>
+                            <label>Department.</label>
                             <Form.Control
                                 as="select"
-                                onChange={(event) => setProfession(event.target.value)}
+                                onChange={(event) => setDept(event.target.value)}
                             >
                                 <option>Select</option>
-                                <option>Artist</option>
-                                <option>Photographer</option>
-                                <option>Team Player</option>
-                                <option>Full Stack</option>
+                                <option>Web</option>
+                                <option>Mobile</option>
+                                <option>Middleware</option>
+                                <option>QA</option>
+                                <option>UI/UX</option>
                             </Form.Control>
                         </div>
 
                         <button type="submit" className="btn btn-dark btn-lg btn-block" id='button-custom'>
-                            Register
+                            Submit
                         </button>
                         <p className="forgot-password text-right">
                             Already registered? <Link to="/">Login</Link>

@@ -2,17 +2,65 @@
   text-align: center;
 }
 
-.navbar-custom {
-  min-height: 64px;
+.header-base {
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.header-base button {
+  height: 80%;
+  margin-left: 10px;
+  width: 200px;
+  border: none;
+  color: blue;
+  background-color: white;
+  font-weight: 400;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#logout {
+  margin-left: 720px;
+  color: rgb(207, 30, 30);
+  font-size: 25px;
+}
+
+.App-logo {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.header-logo {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.header-logo .register-logo {
+  margin-bottom: 10px;
+}
+
+.welcome-text {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  color: rgb(194, 47, 47);
 }
 
 .submit-butn {
-  margin-top: 4px;
+  margin-top: 5px;
   cursor: pointer;
-  font-weight: 400;
-  padding: 11px 28px;
-  border-radius: 10px;
-  font-size: 1rem;
+  font-weight: 500;
+  padding: 9px 28px;
+  border-radius: 15px;
+  font-size: 1.2rem;
   border: none;
   color: #fff;
   transition: all 0.25s ease;
@@ -20,18 +68,33 @@
   justify-content: center;
 }
 
+.other-links {
+  font-size: 25px;
+  margin: 15px;
+  color: grey;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 100px;
+  align-items: center;
+}
+
 .message-register {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-top: 10px;
 }
 
 #input-custom {
-  width : 40%;
+  width: 40%;
   margin-top: 15px;
-  margin-left: 410px;
+  margin-left: 400px;
+  border-radius: 15px;
 }
 
 #button-custom {
   margin-top: 15px;
+  background-color: rgb(194, 27, 27);
+  border: none;
+  border-radius: 10px;
 }
