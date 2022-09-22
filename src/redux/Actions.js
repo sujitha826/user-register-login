@@ -12,3 +12,10 @@ export const storeLoginUser = (payload) => {
         payload: payload
     }
 }
+
+export const storeCard = (payload) => {
+    return {
+        type: "STORE_CARD",
+        payload: payload
+    }
+}

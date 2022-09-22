@@ -1,5 +1,10 @@
+let storedLogin = JSON.parse(localStorage.getItem("login_user"));
+
+if (!storedLogin)
+    storedLogin = [];
+
 const initialState = {
-    loginUser: []
+    loginUser: storedLogin
 }
 
 const loginNow = (state = initialState, action) => {

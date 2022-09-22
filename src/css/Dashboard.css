@@ -1,0 +1,120 @@
+.db-header {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.db-header button {
+    background-color: rgba(128, 128, 128, 0.582);
+    border: none;
+    width: 120px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 13px;
+}
+
+.db-header button:hover {
+    background-color: lightblue;
+}
+
+.dialog-base {
+    position: absolute;
+    background: rgba(7, 8, 9, 0.476);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-base .window {
+    height: 50%;
+    width: 40%;
+    min-height: 500px;
+    min-width: 400px;
+    background-color: white;
+}
+
+.add-cart-base .window {
+    height: 30%;
+    min-height: 300px !important;
+}
+
+.highlight {
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.dialog-base .window .header {
+    font-size: 25px;
+    font-weight: bold;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+.dialog-base .window .body {
+    height: calc(100% - 50px);
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.dialog-base .data-row {
+    display: flex;
+    align-items: flex-end;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+.dialog-base .data-row input,
+.dialog-base .data-row textarea,
+.dialog-base .data-row select {
+    background-color: rgba(87, 159, 221, 0.342);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.dialog-base .btn-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dialog-base .btn-row>button {
+    padding: 8px;
+    width: 80px;
+    background-color: rgb(106, 174, 233);
+    color: blue;
+    border: none;
+    border-radius: 12px;
+}
+
+.dialog-base .data-row .label {
+    flex: 1;
+}
+
+.dialog-base .data-row .divider {
+    flex: 2;
+}
+
+.dialog-base .data-row .input-div {
+    flex: 4;
+    text-align: left;
+}
+
+.dialog-base .data-row .input-div>input {
+    width: 80%;
+    height: 30px;
+}

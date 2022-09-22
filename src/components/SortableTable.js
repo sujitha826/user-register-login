@@ -58,7 +58,7 @@ function SortableTable({ TableData }) {
                             {headers.map((row) => {
                                 return (
                                     <td key={row.key}>
-                                        {row.label}{" "}
+                                        {row.label}
                                         <SortButton
                                             columnKey={row.key}
                                             onClick={() => changeSort(row.key)}
