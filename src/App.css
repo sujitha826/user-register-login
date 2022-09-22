@@ -3,14 +3,14 @@
 }
 
 .header-base {
-  height: 100px;
+  height: 70px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .header-base button {
-  height: 80%;
+  height: 60%;
   margin-left: 10px;
   width: 200px;
   border: none;
@@ -19,6 +19,48 @@
   font-weight: 400;
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.product-base {
+  margin: 0 0;
+}
+
+.product-base .product-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.product-table table {
+  width: 100%;
+}
+
+.product-table table thead tr {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.product-table table tbody tr {
+  text-align: left;
+}
+
+.product-table table tbody tr td:first-child {
+  text-align: center;
+}
+
+.product-table table thead tr th:last-child,
+.product-table table tbody tr td:last-child {
+  text-align: center;
+}
+
+.background-white {
+  background-color: white;
+}
+
+.background-whitesmoke {
+  background-color: whitesmoke;
 }
 
 #logout {
@@ -97,4 +139,20 @@
   background-color: rgb(194, 27, 27);
   border: none;
   border-radius: 10px;
+}
+
+.header-butn {
+  background-color: black;
+  color: white;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.header-butn:hover {
+  background-color: gainsboro;
+}
+
+.sort-reverse {
+  transform: rotate(180deg);
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import FetchProducts from '../components/ProductDisplay';
+import SortableTable from '../components/SortableTable';
+import TableData from "../components/TableData.json";
 
-function Product(props) {
+function Product() {
     return (
         <div>
             <Navbar />
-            <FetchProducts />
+            <SortableTable TableData={TableData} />
         </div>
     );
 }

@@ -17,7 +17,7 @@ const HOC = (WrappedComponent) => {
 
     return (
         <div>
-            <h2>Users List</h2>
+            <h2>Products List</h2>
             <WrappedComponent isLoading={isLoading} data={products}></WrappedComponent>
         </div>
     );
