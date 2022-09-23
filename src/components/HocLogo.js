@@ -1,15 +1,25 @@
 import React from "react";
+import SignImg from "./SignInImage";
+import logo from '../components/logo.jpg';
 
-const withLogo = (wrappedComponent) => {
-    return function WithRightLogo({ logo }) {
-        const logo_svg = logo;
+const withLogoAndImage = (wrappedComponent) => {
+    return function withLogo() {
         return (
             <div>
-                <img src={logo_svg} className="App-logo" alt="logo"></img>
-                <wrappedComponent/>
+                <div class="d-flex">
+                    <div className="reg-content">
+                        <div className="reg-header">
+                            <img src={logo} className="App-logo" alt="logo"></img>
+                        </div>
+                        <wrappedComponent />
+                    </div>
+                    <div class="ml-auto" className="reg-right">
+                        <SignImg />
+                    </div>
+                </div>
             </div>
         );
     };
 };
 
-export default withLogo;
+export default withLogoAndImage;

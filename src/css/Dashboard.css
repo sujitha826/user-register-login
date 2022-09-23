@@ -124,6 +124,8 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
+    width: 100%;
+    min-height: fit-content;
 }
 
 .todo {
@@ -137,6 +139,7 @@
     color: cadetblue;
     justify-content: space-around;
     margin: 10px 10px;
+    border-radius: 10px;
 }
 
 .progress {
@@ -150,6 +153,7 @@
     color: cadetblue;
     justify-content: space-around;
     margin: 10px 10px;
+    border-radius: 10px;
 }
 
 .done {
@@ -163,6 +167,7 @@
     color: cadetblue;
     justify-content: space-around;
     margin: 10px 10px;
+    border-radius: 10px;
 }
 
 .tested {
@@ -176,19 +181,33 @@
     color: cadetblue;
     justify-content: space-around;
     margin: 10px 10px;
+    border-radius: 10px;
+}
+
+.heading {
+    display: flex;
+    margin: 0 10px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.heading h3 {
+    margin-right: 200px;
+    text-align: left;
 }
 
 .btn {
     display: inline-block;
-    background: #000;
-    color: #fff;
+    background: none;
+    color: rgb(190, 22, 22);
     border: none;
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 10px 10px;
+    margin: 2px;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
     font-family: inherit;
 }
 
@@ -206,22 +225,37 @@
 }
 
 .task {
-    background: #579fdd57;
+    background: #387fbd57;
     margin: 5px;
-    padding: 20px 20px;
-    cursor: pointer;
+    padding: 2px 2px;
+    border-radius: 5px;
 }
 
 .task h3 {
     display: flex;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    align-items: center;
-    justify-content: center;
-    color: rgb(202, 126, 26);
-    margin-top: 15px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: rgb(175, 107, 18);
+    margin-top: 10px;
 }
 
 .task p {
     color: black;
     margin-top: 15px;
+}
+
+.task .clear-icon {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.title-image {
+    display: flex;
+}
+
+.title-image .task-image {
+    width : 30%;
+    margin-left: 10px;
+    margin-right: 40px;
 }

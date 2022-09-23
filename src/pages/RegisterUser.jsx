@@ -7,8 +7,7 @@ import { v4 as uuid } from 'uuid';
 import { storeUsersList } from '../redux/Actions';
 import Login from "./Login";
 import logo from '../components/logo.jpg';
-import withLogo from "../components/HocLogo";
-
+import { validateEmail, validatePassword } from "../validators/InputValidators";
 
 function RegisterUser(props) {
     const [name, setName] = useState("");
@@ -21,6 +20,9 @@ function RegisterUser(props) {
     const [flag, setFlag] = useState(false);
     const [login, setLogin] = useState(false);
 
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+
     const navigate = useNavigate();
 
     function handleFormSubmit(e) {
@@ -28,42 +30,47 @@ function RegisterUser(props) {
 
         if (!name || !email || !password || !username || !dob || !dept) {
             setFlag(true);
-
-        } else {
-            setFlag(false);
-            // const allUsers = JSON.parse(localStorage.getItem("users"));
-            // if (!allUsers) {
-            //     let inputUser = { name: name, email: email, password: password, phone: phone, dob: dob, profession: profession };
-            //     let userData = [{ ...inputUser }];
-            //     console.log(userData);
-            //     localStorage.setItem("users", JSON.stringify(userData));
-            // }
-            // else {
-            //     let newUser = { name: name, email: email, password: password, phone: phone, profession: profession };
-            //     let usersList = Object.assign([], allUsers);
-            //     usersList.push(newUser);
-            //     localStorage.setItem("users", JSON.stringify(usersList));
-            // }
-
-            let uList = Object.assign([], props.usersList);                 // Extracting store list from props(array)
-            let userExists = uList.findIndex((item) => { return item.email === email });
-            if (userExists === -1) {
-                let newUserData = { name: name, email: email, password: password, username: username, dob: dob, department: dept };
-                newUserData.id = name.slice(0, 2) + uuid().slice(0, 2);
-                uList.push(newUserData);
-                props.storeUsersList(uList);                              // Updating store
-                localStorage.setItem("users", JSON.stringify(uList));     // Updating local storage
-                console.log("New User Saved to Local Storage");
-                navigate("/");
-            }
-            else {
-                // return alert("Email exists already.Please register with a different email ID..");
-                <Alert color="primary" variant="danger">
-                    Email already exists..Please register with a different email ID!!
-                </Alert>
-            }
-            // setLogin(true);
+            return alert("Please enter all input fields");
         }
+        if (!validateEmail(email)) {
+            return setEmailError(true);
+        };
+        if (!validatePassword(password))
+            return setPasswordError(true);
+
+        setFlag(false);
+        // const allUsers = JSON.parse(localStorage.getItem("users"));
+        // if (!allUsers) {
+        //     let inputUser = { name: name, email: email, password: password, phone: phone, dob: dob, profession: profession };
+        //     let userData = [{ ...inputUser }];
+        //     console.log(userData);
+        //     localStorage.setItem("users", JSON.stringify(userData));
+        // }
+        // else {
+        //     let newUser = { name: name, email: email, password: password, phone: phone, profession: profession };
+        //     let usersList = Object.assign([], allUsers);
+        //     usersList.push(newUser);
+        //     localStorage.setItem("users", JSON.stringify(usersList));
+        // }
+
+        let uList = Object.assign([], props.usersList);                 // Extracting store list from props(array)
+        let userExists = uList.findIndex((item) => { return item.email === email });
+        if (userExists === -1) {
+            let newUserData = { name: name, email: email, password: password, username: username, dob: dob, department: dept };
+            newUserData.id = name.slice(0, 2) + uuid().slice(0, 2);
+            uList.push(newUserData);
+            props.storeUsersList(uList);                              // Updating store
+            localStorage.setItem("users", JSON.stringify(uList));     // Updating local storage
+            console.log("New User Saved to Local Storage");
+            navigate("/");
+        }
+        else {
+            return alert("Email exists already.Please register with a different email ID..");
+            // <Alert color="primary" variant="danger">
+            //     Email already exists..Please register with a different email ID!!
+            // </Alert>
+        }
+        // setLogin(true);
     }
 
 
@@ -94,6 +101,7 @@ function RegisterUser(props) {
                                 onChange={(event) => setEmail(event.target.value)}
                             />
                         </div>
+                        {emailError && <div className="invalid">Please enter a valid email</div>}
 
                         <div className="form-group" id="input-custom">
                             <label>Password</label>
@@ -104,7 +112,7 @@ function RegisterUser(props) {
                                 onChange={(event) => setPassword(event.target.value)}
                             />
                         </div>
-
+                        {passwordError && <div className="invalid">Password should contain atleast one alphabet,one digit, one special character and minimum 8 total chars</div>}
                         <div className="form-group" id="input-custom">
                             <label>Preferrred Username.</label>
                             <input
@@ -153,9 +161,9 @@ function RegisterUser(props) {
                             </Alert>
                         )}
                     </form>
-                ) : (
-                    <Login />
-                )}
+                ) :
+                    (<Login />)
+                }
             </div>
 
         </>

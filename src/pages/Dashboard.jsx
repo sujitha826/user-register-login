@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { toast } from "react-toastify";
 
 import Navbar from '../components/Navbar';
 import NothingToShow from '../components/NothingToShow';
@@ -23,9 +25,15 @@ function Dashboard(props) {
         cData.id = "T" + uuid().slice(0, 2);
         let userExist = cList.findIndex((item) => { return item.email === cData.email });
         if (userExist === -1) {
-            alert("First Card of the user-added!!!");
+            toast.info("First card added to the login user !!!", {
+                position: "bottom-left", autoClose: 3000
+            });
         }
-        else { alert("New card to the login user - added!!!"); }
+        else {
+            toast.info("New card to the login user - added!!!", {
+                position: "bottom-left", autoClose: 3000
+            });
+        }
         cList.push(cData);
         props.storeCard(cList);
         localStorage.setItem("allCards", JSON.stringify(cList));

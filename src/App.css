@@ -174,3 +174,15 @@
 .not-found p {
   font-size: 20px;
 }
+.reg-header {
+  margin-left: 70px;
+}
+
+.reg-right {
+  margin-left: 500px;
+}
+
+.reg-content {
+  display: flex;
+  flex-direction: column;
+}

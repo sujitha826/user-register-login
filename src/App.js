@@ -8,6 +8,7 @@ import RegisterUser from "./pages/RegisterUser";
 import Dashboard from "./pages/Dashboard";
 import Product from "./pages/Product";
 import { ToastContainer } from "react-bootstrap";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register-user" element={<RegisterUser />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/products" element={<Product />} />
+        <Route path="/hoc" element={<Register />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
