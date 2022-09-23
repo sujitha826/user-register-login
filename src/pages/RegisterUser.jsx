@@ -147,8 +147,7 @@ function RegisterUser(props) {
                                 <option>UI/UX</option>
                             </Form.Control>
                         </div>
-
-                        <button type="submit" className="btn btn-dark btn-lg btn-block" id='button-custom'>
+                        <button type="submit" className="btn btn-dark btn-lg" id='button-custom'>
                             Submit
                         </button>
                         <p className="forgot-password text-right">

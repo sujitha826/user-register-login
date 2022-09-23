@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: 'myFirstFont';
+  src: local('myFirstFont'), url(./assets/Roboto-Regular.ttf) format('opentype');
 }
 
 .header-base {
@@ -7,6 +13,7 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 .header-base button {
@@ -18,7 +25,7 @@
   background-color: white;
   font-weight: 400;
   font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 .header-base #logout {
@@ -46,10 +53,12 @@
   background-color: black;
   color: white;
   text-align: center;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 .product-table table tbody tr {
   text-align: left;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 .product-table table tbody tr td:first-child {
@@ -94,6 +103,7 @@
   margin-bottom: 15px;
   flex-wrap: wrap;
   color: rgb(194, 47, 47);
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 .submit-butn {
@@ -125,6 +135,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 10px;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 #input-custom {
@@ -132,13 +143,16 @@
   margin-top: 15px;
   margin-left: 400px;
   border-radius: 15px;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 #button-custom {
   margin-top: 15px;
   background-color: rgb(194, 27, 27);
+  color: white;
   border: none;
   border-radius: 10px;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 .header-butn {
@@ -147,6 +161,7 @@
   font-size: medium;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 .header-butn:hover {
@@ -169,11 +184,14 @@
 
 .not-found h2 {
   font-size: 50px;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
 .not-found p {
   font-size: 20px;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
+
 .reg-header {
   margin-left: 70px;
 }
