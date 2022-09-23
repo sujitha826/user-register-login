@@ -21,6 +21,12 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.header-base #logout {
+  color: rgba(221, 29, 29, 0.952);
+  font-size: 24px;
+  margin-left: 720px;
+}
+
 .product-base {
   margin: 0 0;
 }
@@ -61,15 +67,6 @@
 
 .background-whitesmoke {
   background-color: whitesmoke;
-}
-
-#logout {
-  margin-left: 700px;
-  margin-top: 4px;
-  color: rgb(207, 30, 30);
-  font-size: 22px;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .App-logo {

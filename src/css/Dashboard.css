@@ -118,3 +118,110 @@
     width: 80%;
     height: 30px;
 }
+
+.task-base {
+    background-color: lightblue;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.todo {
+    background-color: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    width: 50%;
+    color: cadetblue;
+    justify-content: space-around;
+    margin: 10px 10px;
+}
+
+.progress {
+    background-color: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    width: 50%;
+    color: cadetblue;
+    justify-content: space-around;
+    margin: 10px 10px;
+}
+
+.done {
+    background-color: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    width: 50%;
+    color: cadetblue;
+    justify-content: space-around;
+    margin: 10px 10px;
+}
+
+.tested {
+    background-color: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    width: 50%;
+    color: cadetblue;
+    justify-content: space-around;
+    margin: 10px 10px;
+}
+
+.btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.task {
+    background: #579fdd57;
+    margin: 5px;
+    padding: 20px 20px;
+    cursor: pointer;
+}
+
+.task h3 {
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    align-items: center;
+    justify-content: center;
+    color: rgb(202, 126, 26);
+    margin-top: 15px;
+}
+
+.task p {
+    color: black;
+    margin-top: 15px;
+}
