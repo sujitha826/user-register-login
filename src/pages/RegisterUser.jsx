@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 
 import { storeUsersList } from '../redux/Actions';
-import Login from "./Login";
+// import Login from "./Login";
 import logo from '../components/logo.jpg';
 import { validateEmail, validatePassword } from "../validators/InputValidators";
 
@@ -30,7 +31,7 @@ function RegisterUser(props) {
 
         if (!name || !email || !password || !username || !dob || !dept) {
             setFlag(true);
-            return alert("Please enter all input fields");
+            return alert("Some inputs are missing..Please enter all input fields");
         }
         if (!validateEmail(email)) {
             return setEmailError(true);
@@ -39,6 +40,7 @@ function RegisterUser(props) {
             return setPasswordError(true);
 
         setFlag(false);
+
         // const allUsers = JSON.parse(localStorage.getItem("users"));
         // if (!allUsers) {
         //     let inputUser = { name: name, email: email, password: password, phone: phone, dob: dob, profession: profession };
@@ -65,7 +67,8 @@ function RegisterUser(props) {
             navigate("/");
         }
         else {
-            return alert("Email exists already.Please register with a different email ID..");
+            alert("Email exists already...Please try login using this email or register with a different email ID..");
+            setLogin(true);
             // <Alert color="primary" variant="danger">
             //     Email already exists..Please register with a different email ID!!
             // </Alert>
@@ -112,7 +115,7 @@ function RegisterUser(props) {
                                 onChange={(event) => setPassword(event.target.value)}
                             />
                         </div>
-                        {passwordError && <div className="invalid">Password should contain atleast one alphabet,one digit, one special character and minimum 8 total chars</div>}
+                        {passwordError && <div className="invalid">Password should contain atleast one uppercase and one lowercase letters ,one digit, one special character and minimum 8 total chars</div>}
                         <div className="form-group" id="input-custom">
                             <label>Preferrred Username.</label>
                             <input
@@ -161,7 +164,7 @@ function RegisterUser(props) {
                         )}
                     </form>
                 ) :
-                    (<Login />)
+                    (<Navigate to="/" replace />)
                 }
             </div>
 

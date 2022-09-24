@@ -265,7 +265,13 @@
 }
 
 .title-image .task-image {
-    width : 30%;
+    width: 30%;
     margin-left: 10px;
     margin-right: 40px;
+}
+
+@media (max-width: 800px) {
+    .todo .progress .done .tested {
+        flex: 100%;
+    }
 }

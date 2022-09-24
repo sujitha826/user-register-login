@@ -28,6 +28,14 @@
   font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
+.header-base button:active {
+  border-bottom: 2px solid blue;
+  transition: width 2s;
+  -webkit-transition: width 2s;
+  outline: none;
+  box-shadow: none;
+}
+
 .header-base #logout {
   color: rgba(221, 29, 29, 0.952);
   font-size: 24px;
@@ -200,7 +208,15 @@
   margin-left: 500px;
 }
 
+.login-right {
+  margin-left: 500px;
+}
+
 .reg-content {
   display: flex;
   flex-direction: column;
+}
+
+.invalid {
+  color: red;
 }
