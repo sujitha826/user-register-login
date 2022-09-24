@@ -8,7 +8,8 @@ import Login from "./pages/Login";
 import RegisterUser from "./pages/RegisterUser";
 import Dashboard from "./pages/Dashboard";
 import Product from "./pages/Product";
-import Register from "./components/Register";
+import RegisterWithLogo from "./components/Register";
+// import withLogoAndImage from "./components/HocLogo";
 
 function isLoggedIn() {
   let user = localStorage.getItem("login_user");
@@ -40,7 +41,7 @@ function App() {
 
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/products" element={<Product />} />
-        <Route path="/hoc" element={<Register />} />
+        <Route path="/hoc" element={<RegisterWithLogo />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

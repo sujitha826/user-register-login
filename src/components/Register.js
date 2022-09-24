@@ -1,5 +1,6 @@
 import React from 'react';
-import withLogoAndImage from './HocLogo';
+import WithLogoAndImage from './HocLogo';
+import logo from '../components/logo.jpg';
 
 function Register(props) {
     return (
@@ -9,4 +10,5 @@ function Register(props) {
     );
 }
 
-export default withLogoAndImage(Register);
+const RegisterWithLogo = WithLogoAndImage(Register, logo);
+export default RegisterWithLogo;

@@ -50,7 +50,7 @@ function Dashboard(props) {
         <div>
             <Navbar />
             <div className='db-header'>
-                <button onClick={() => setShowAddCard(true)}>Add Card</button>
+                <button title = "add card with set status" onClick={() => setShowAddCard(true)}>Add Card</button>
             </div>
             {taskList.length > 0 ? <TaskDisplay taskList={taskList} onDelete={deleteTask} /> : <NothingToShow />}
 
