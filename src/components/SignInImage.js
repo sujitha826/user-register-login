@@ -1,5 +1,5 @@
 import React from 'react';
-import login_bg from './login_bg.jpg';
+import login_bg from '../assets/login_bg.jpg';
 
 const SignImg = () => {
     return (

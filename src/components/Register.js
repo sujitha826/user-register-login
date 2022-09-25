@@ -1,6 +1,6 @@
 import React from 'react';
 import WithLogoAndImage from './HocLogo';
-import logo from '../components/logo.jpg';
+import logo from '../assets/logo.jpg';
 
 function Register(props) {
     return (

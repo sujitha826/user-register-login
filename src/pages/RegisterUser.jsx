@@ -6,8 +6,7 @@ import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 
 import { storeUsersList } from '../redux/Actions';
-// import Login from "./Login";
-import logo from '../components/logo.jpg';
+import logo from '../assets/logo.jpg';
 import { validateEmail, validatePassword } from "../validators/InputValidators";
 
 function RegisterUser(props) {

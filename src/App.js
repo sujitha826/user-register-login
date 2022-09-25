@@ -9,7 +9,7 @@ import RegisterUser from "./pages/RegisterUser";
 import Dashboard from "./pages/Dashboard";
 import Product from "./pages/Product";
 import RegisterWithLogo from "./components/Register";
-// import withLogoAndImage from "./components/HocLogo";
+import Registration from "./components/Registration";
 
 function isLoggedIn() {
   let user = localStorage.getItem("login_user");
@@ -32,7 +32,7 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route exact path="/" element={<Login />} />
-        <Route path="/register-user" element={<RegisterUser />} />
+        <Route path="/register-user" element={<Registration />} />
 
         <Route path="/dashboard" element={
           <ProtectedRoute redirectPath="/">
@@ -41,7 +41,6 @@ function App() {
 
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/products" element={<Product />} />
-        <Route path="/hoc" element={<RegisterWithLogo />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </div>

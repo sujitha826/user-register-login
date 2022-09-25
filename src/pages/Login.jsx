@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 // import PersonIcon from '@mui/icons-material/Person';
 // import HttpsIcon from '@mui/icons-material/Https';
-import logo from '../components/logo.jpg';
+import logo from '../assets/logo.jpg';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GoogleIcon from '@mui/icons-material/Google';
 import TwitterIcon from '@mui/icons-material/Twitter';

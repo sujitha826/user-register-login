@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/Dashboard.css';
 import ClearIcon from '@mui/icons-material/Clear';
-import todo from "./todo.jpg";
+import todo from "../assets/todo.jpg";
 
 const Task = ({ task, onDelete }) => {
     return (

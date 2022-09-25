@@ -1,11 +1,9 @@
 import React from "react";
-// import SignImg from "./SignInImage";
-import logo from '../components/logo.jpg';
-import login_bg from './login_bg.jpg';
-// import { Register } from "./Register";
+import logo from '../assets/logo.jpg';
+import login_bg from '../assets/login_bg.jpg';
 
 
-const WithLogoAndImage = (wrappedComponent) => {
+const WithLogoAndImage = (wrappedComponent, logo) => {
     return function withLogo() {
         return (
             <div class="d-flex">

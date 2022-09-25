@@ -201,7 +201,7 @@
 }
 
 .reg-header {
-  margin-left: 70px;
+  margin-left: 10px;
 }
 
 .reg-right {
@@ -215,7 +215,7 @@
 .reg-content {
   display: flex;
   flex-direction: column;
-  width : 100%;
+  width: 100%;
   height: 100%;
 }
 

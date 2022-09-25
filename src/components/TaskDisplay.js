@@ -11,7 +11,7 @@ import { storeCard } from '../redux/Actions';
 
 function TaskDisplay(props) {
     const allUserTasks = props.cardsList.filter((each) => each.email === props.loginUser[0].email);
-    // console.log(JSON.stringify(allUserTasks));
+    console.log(JSON.stringify(allUserTasks));
 
     const part1 = allUserTasks.filter((task) => task.status === "To Do");
     // console.log(JSON.stringify(part1));

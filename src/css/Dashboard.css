@@ -9,12 +9,12 @@
 }
 
 .db-header button {
-    background-color: rgba(53, 33, 235, 0.432);
+    background-color: rgba(33, 137, 235, 0.63);
     border: none;
-    width: 120px;
-    height: 50px;
+    width: 110px;
+    height: 40px;
     cursor: pointer;
-    border-radius: 13px;
+    border-radius: 15px;
     font-family: myFirstFont, Arial, Helvetica, sans-serif;
 }
 
