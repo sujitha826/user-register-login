@@ -36,17 +36,13 @@
 }
 
 .dialog-base .window {
-    height: 50%;
-    width: 40%;
+    height: 40%;
+    width: 30%;
     min-height: 500px;
     min-width: 400px;
     background-color: white;
     font-family: myFirstFont, Arial, Helvetica, sans-serif;
-}
-
-.add-cart-base .window {
-    height: 30%;
-    min-height: 300px !important;
+    border-radius: 20px;
 }
 
 .highlight {
@@ -64,6 +60,7 @@
     justify-content: center;
     background-color: antiquewhite;
     font-family: myFirstFont, Arial, Helvetica, sans-serif;
+    border-radius: 10px;
 }
 
 .dialog-base .window .body {
@@ -80,17 +77,29 @@
     align-items: flex-end;
     font-size: large;
     font-family: myFirstFont, Arial, Helvetica, sans-serif;
+    justify-content: flex-start;
+    margin-left: 10px;
 }
 
 .dialog-base .data-row input,
-.dialog-base .data-row textarea,
 .dialog-base .data-row select {
     background-color: rgba(87, 159, 221, 0.342);
     border: none;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px;
-    border-radius: 5px;
-    width: 50%;
+    border-radius: 8px;
+    width: 70%;
     font-family: myFirstFont, Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+.dialog-base .data-row textarea {
+    background-color: rgba(87, 159, 221, 0.342);
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px;
+    border-radius: 8px;
+    width: 85%;
+    font-family: myFirstFont, Arial, Helvetica, sans-serif;
+    font-size: medium;
 }
 
 .dialog-base .btn-row {
@@ -103,17 +112,17 @@
     padding: 8px;
     width: 80px;
     background-color: rgb(106, 174, 233);
-    color: blue;
+    color: rgb(9, 9, 43);
     border: none;
     border-radius: 12px;
 }
 
 .dialog-base .data-row .label {
-    flex: 1;
+    flex: 2;
 }
 
 .dialog-base .data-row .divider {
-    flex: 2;
+    flex: 1;
 }
 
 .dialog-base .data-row .input-div {
@@ -123,7 +132,7 @@
 
 .dialog-base .data-row .input-div>input {
     width: 80%;
-    height: 30px;
+    height: 40px;
 }
 
 .task-base {
@@ -270,7 +279,7 @@
     margin-right: 40px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
     .todo .progress .done .tested {
         flex: 100%;
     }

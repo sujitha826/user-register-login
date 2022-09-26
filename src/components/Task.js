@@ -14,7 +14,7 @@ const Task = ({ task, onDelete }) => {
                 <img src={todo} className="task-image" alt=""></img>
                 <h3>{task.title}</h3>
             </div>
-            <p>Details: {task.des}</p>
+            <p>Details: {task.desc}</p>
         </div>
     );
 }

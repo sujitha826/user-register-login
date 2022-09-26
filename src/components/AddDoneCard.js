@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../css/AddCard.css';
 import Input from './Input';
 
-function AddTodoCardDialog(props) {
+function AddDoneCard(props) {
 
     const [input, setInput] = useState({});
 
@@ -17,7 +17,7 @@ function AddTodoCardDialog(props) {
     }
 
     function handleAddTask() {
-        props.onAddTodoCardCB(input);
+        props.onAddDoneCardCB(input);
         props.onClose();
     }
 
@@ -69,4 +69,4 @@ function AddTodoCardDialog(props) {
     );
 }
 
-export default AddTodoCardDialog;
+export default AddDoneCard;

@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Product from "./pages/Product";
 import RegisterWithLogo from "./components/Register";
 import Registration from "./components/Registration";
+import logo from './assets/logo.jpg';
 
 function isLoggedIn() {
   let user = localStorage.getItem("login_user");
@@ -39,7 +40,7 @@ function App() {
             <Dashboard />
           </ProtectedRoute>} />
 
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        <Route path="/hoc" element={<RegisterWithLogo />} />
         <Route path="/products" element={<Product />} />
         <Route path="*" element={<Error />} />
       </Routes>

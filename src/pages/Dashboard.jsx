@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 import Navbar from '../components/Navbar';
 import NothingToShow from '../components/NothingToShow';
@@ -61,6 +61,7 @@ function Dashboard(props) {
                     />
                     : null
             }
+            <ToastContainer />
         </div>
     );
 }

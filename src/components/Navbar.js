@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 
 function Navbar() {
     const navigate = useNavigate();
+    const [activeDashStyling, setActiveDashStyling] = useState(false);
+    const [activeProdStyling, setActiveProdStyling] = useState(false);
 
-    function goTo(path) {
+    function goToFirst(path) {
+        setActiveDashStyling(true);
+        console.log("Dashboard" + activeDashStyling);
         navigate(path);                       // Navigate to the path given with user-history saved to History stack as the new instance.
+    }
+
+    function goToSecond(path) {
+        setActiveProdStyling(!activeProdStyling);
+        console.log("Product" + activeProdStyling);
+        navigate(path);
     }
 
     const userLogout = () => {
@@ -14,13 +24,15 @@ function Navbar() {
         navigate("/");
     }
 
+    const activeStyle = { borderBottom: "2px solid blue" };
+
     return (
         <div className='header-base'>
-            <button onClick={() => goTo("/dashboard")}>Dashboard</button>
-            <button onClick={() => goTo("/products")}> Product</button>
+            <button onClick={() => goToFirst("/dashboard")} style={activeDashStyling ? activeStyle : {}}>Dashboard</button>
+            <button onClick={() => goToSecond("/products")} style={activeProdStyling ? activeStyle : {}}> Product</button>
             <button id="logout" onClick={userLogout}><LogoutIcon /> Logout</button>
         </div >
-    )
+    );
 }
 
 export default Navbar;
