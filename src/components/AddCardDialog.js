@@ -43,7 +43,7 @@ function AddCardDialog(props) {
                         </div>
                         <div className="divider">:</div>
                         <div className="input-div">
-                            <textarea value={cardData.description} name="des" onChange={onChangeData} />
+                            <textarea value={cardData.description} name="desc" onChange={onChangeData} />
                         </div>
                     </div>
 
