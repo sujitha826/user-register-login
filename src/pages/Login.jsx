@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import SignImg from '../components/SignInImage';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +12,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 
 import { connect } from 'react-redux';
 import { storeLoginUser } from '../redux/Actions';
+import login_bg from '../assets/login_bg.jpg';
 
 const Login = (props) => {
 
@@ -39,20 +39,16 @@ const Login = (props) => {
 
         const { email, password } = inpval;
         if (email === "") {
-            toast.error('email field is requred', {
-                position: "top-center",
-            });
-        } else if (!email.includes("@")) {
-            toast.error('Plz enter a valid email address', {
-                position: "top-center",
+            toast.error('email/username field is requred', {
+                position: "top-left", autoClose: 3000
             });
         } else if (password === "") {
             toast.error('Password field is requred', {
-                position: "top-center",
+                position: "top-left", autoClose: 3000
             });
         } else if (password.length < 8) {
             toast.error('Password length should be equal to or greater than eight', {
-                position: "top-center",
+                position: "top-left", autoClose: 3000
             });
         } else {
             // const getuserArr = localStorage.getItem("users");
@@ -80,11 +76,11 @@ const Login = (props) => {
 
             let allUsers = Object.assign([], props.usersList);
             const loginUser = allUsers.filter((el, k) => {
-                return el.email === email && el.password === password
+                return (el.email === email || el.username === email) && el.password === password
             });
             console.log(loginUser);
             if (loginUser.length === 0) {
-                return alert("Invalid user details");
+                return alert("Invalid User details...May be user credentials wrong");
             } else {
                 console.log("User logged in succesfully");
                 props.storeLoginUser(loginUser);
@@ -96,8 +92,8 @@ const Login = (props) => {
 
     return (
         <>
-            <div className="container mt-1">
-                <section className='d-flex'>
+            <div className="container">
+                <div className='d-flex'>
                     <div className="left_data mt-2 p-3" style={{ width: "100%" }}>
                         <h3 className='text-center mb-2 col-lg-7'>WELCOME TO </h3>
                         <img src={logo} className="App-logo" alt="logo"></img>
@@ -105,7 +101,7 @@ const Login = (props) => {
 
                         <Form >
                             <Form.Group className="mb-4 mt-4 col-lg-7" controlId="formBasicEmail">
-                                <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter email" />
+                                <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter email/username" />
                             </Form.Group>
 
                             <Form.Group className="mb-4 mt-4 col-lg-7" controlId="formBasicPassword">
@@ -130,8 +126,10 @@ const Login = (props) => {
                             </div>
                         </div>
                     </div>
-                    <SignImg />
-                </section>
+                    <div className="right_data" style={{ width: "130%", height: "110%" }}>
+                        <img src={login_bg} style={{ width: "90%", height: "100%", marginLeft: "175px" }} alt="" />
+                    </div>
+                </div>
                 <ToastContainer />
             </div>
         </>

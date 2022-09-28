@@ -19,3 +19,10 @@ export const storeCard = (payload) => {
         payload: payload
     }
 }
+
+export const storeDndCard = (payload) => {
+    return {
+        type: "STORE_DND_CARD",
+        payload: payload
+    }
+}
