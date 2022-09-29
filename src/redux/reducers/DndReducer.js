@@ -1,7 +1,7 @@
 let storedCardsList = JSON.parse(localStorage.getItem("dndCards"));
 
 if (!storedCardsList)
-    storedCardsList = { tasks: [] };
+    storedCardsList = [];
 
 const initialState = {
     dndCardsList: storedCardsList

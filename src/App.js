@@ -34,12 +34,12 @@ function App() {
         <Route exact path="/" element={<Login />} />
         <Route path="/register-user" element={<Registration />} />
 
-        <Route path="/dashboard" element={
+        <Route path="/dnd" element={
           <ProtectedRoute redirectPath="/">
-            <Dashboard />
+            <Dnd />
           </ProtectedRoute>} />
 
-        <Route path="/dnd" element={<Dnd />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/products" element={<Product />} />
         <Route path="*" element={<Error />} />
       </Routes>

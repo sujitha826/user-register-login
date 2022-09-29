@@ -85,7 +85,7 @@ const Login = (props) => {
                 console.log("User logged in succesfully");
                 props.storeLoginUser(loginUser);
                 localStorage.setItem("login_user", JSON.stringify(loginUser));
-                navigate("/dashboard");
+                navigate("/dnd");
             }
         }
     }

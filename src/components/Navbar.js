@@ -14,8 +14,8 @@ function Navbar() {
     }
 
     function goToSecond(path) {
-        setActiveProdStyling(!activeProdStyling);
-        console.log("Product" + activeProdStyling);
+        setActiveProdStyling(true);
+        // console.log("Product" + activeProdStyling);
         navigate(path);
     }
 
@@ -28,7 +28,7 @@ function Navbar() {
 
     return (
         <div className='header-base'>
-            <button onClick={() => goToFirst("/dashboard")} style={activeDashStyling ? activeStyle : {}}>Dashboard</button>
+            <button onClick={() => goToFirst("/dnd")} style={activeDashStyling ? activeStyle : {}}>Dashboard</button>
             <button onClick={() => goToSecond("/products")} style={activeProdStyling ? activeStyle : {}}> Product</button>
             <button id="logout" onClick={userLogout}><LogoutIcon /> Logout</button>
         </div >

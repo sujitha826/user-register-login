@@ -9,7 +9,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import logo from '../assets/logo.jpg';
 import login_bg from '../assets/login_bg.jpg';
 import { storeUsersList } from '../redux/Actions';
-import { validateEmail, validatePassword } from "../validators/InputValidators";
+import { validateEmail, validatePassword, validateUsername } from "../validators/InputValidators";
 
 const Registration = (props) => {
 
@@ -22,6 +22,7 @@ const Registration = (props) => {
 
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
+    const [usernameError, setUsernameError] = useState(false);
 
     const navigate = useNavigate();
 
@@ -35,6 +36,11 @@ const Registration = (props) => {
         if (!validateEmail(email)) {
             return setEmailError(true);
         };
+
+        if (!validateUsername(username)) {
+            return setUsernameError(true);
+        }
+
         if (!validatePassword(password))
             return setPasswordError(true);
 
@@ -73,8 +79,8 @@ const Registration = (props) => {
                                 placeholder="Enter email"
                                 onChange={(event) => setEmail(event.target.value)}
                             />
+                            {emailError && <div className="invalid">Please enter a valid email</div>}
                         </div>
-                        {emailError && <div className="invalid">Please enter a valid email</div>}
 
                         <div className="form-group" style={{ width: "50%", marginLeft: "60px", marginTop: "20px" }}>
                             <label>Preferrred Username.</label>
@@ -84,6 +90,7 @@ const Registration = (props) => {
                                 placeholder="Enter username"
                                 onChange={(event) => setUsername(event.target.value)}
                             />
+                            {usernameError && <div className="invalid">Username must be between 3 and 10 characters.</div>}
                         </div>
 
                         <div className="form-group" style={{ width: "50%", marginLeft: "60px", marginTop: "20px" }}>
@@ -94,8 +101,9 @@ const Registration = (props) => {
                                 placeholder="Enter password"
                                 onChange={(event) => setPassword(event.target.value)}
                             />
+                            {passwordError && <div className="invalid">Password should contain atleast one uppercase and one lowercase letters ,one digit, one special character and minimum 8 total chars</div>}
                         </div>
-                        {passwordError && <div className="invalid">Password should contain atleast one uppercase and one lowercase letters ,one digit, one special character and minimum 8 total chars</div>}
+
                         <div className='action-container-reg'>
                             <button className='submit-butn' onClick={handleFormSubmit} style={{ background: "rgb(194, 47, 47)", width: "50%", marginLeft: "60px", marginTop: "20px" }} type="submit">
                                 SUBMIT

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../css/AddCard.css';
 import Input from './Input';
 
-function AddTodoTask(props) {
+function AddDoneTask(props) {
 
     const [input, setInput] = useState({});
 
@@ -17,7 +17,7 @@ function AddTodoTask(props) {
     }
 
     function handleAddTask() {
-        props.onAddTodoTask(input);
+        props.onAddDoneTask(input);
         props.onClose();
     }
 
@@ -67,4 +67,4 @@ function AddTodoTask(props) {
     );
 }
 
-export default AddTodoTask;
+export default AddDoneTask;

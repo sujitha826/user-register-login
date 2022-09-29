@@ -10,14 +10,16 @@ import tested from "../assets/tested.jpg";
 import { storeDndCard } from '../redux/Actions';
 import AddTodoTask from './AddTodoTask';
 import AddDoingTask from './AddDoingTask';
+import AddDoneTask from './AddDoneTask';
+import AddTestedTask from './AddTestedTask';
 import Navbar from './Navbar';
-import NothingToShow from './NothingToShow';
 
 function Dnd(props) {
 
     const [showTodoTask, setShowTodoTask] = useState(false);
-    const [showFirstTask, setFirstTask] = useState(false);
+    const [showDoneTask, setShowDoneTask] = useState(false);
     const [showDoingTask, setShowDoingTask] = useState(false);
+    const [showTestedTask, setShowTestedTask] = useState(false);
 
     const onAddTodoTask = (cData) => {
         let cList = Object.assign([], props.dndCardsList);
@@ -50,12 +52,60 @@ function Dnd(props) {
         cData.status = "wip";
         let userExist = cList.findIndex((item) => { return item.email === cData.email });
         if (userExist === -1) {
-            toast.info("First card added to the login user !!!", {
+            toast.info("First card added to the login user!!", {
                 position: "bottom-left", autoClose: 3000
             });
         }
         else {
-            toast.info("New card to the login user - With status : To Do- added!!!", {
+            toast.info("New card to the login user with status:In progress - added!!!", {
+                position: "bottom-left", autoClose: 3000
+            });
+        }
+        cList.push(cData);
+        props.storeDndCard(cList);
+        setState({
+            tasks: cList
+        });
+        localStorage.setItem("dndCards", JSON.stringify(cList));
+    }
+
+    const onAddDoneTask = (cData) => {
+        let cList = Object.assign([], props.dndCardsList);
+        cData.email = props.loginUser[0].email;
+        cData.id = "T" + uuid().slice(0, 2);
+        cData.status = "done";
+        let userExist = cList.findIndex((item) => { return item.email === cData.email });
+        if (userExist === -1) {
+            toast.info("First card added to the login user!!", {
+                position: "bottom-left", autoClose: 3000
+            });
+        }
+        else {
+            toast.info("New card to the login user - with status:Done - added!!!", {
+                position: "bottom-left", autoClose: 3000
+            });
+        }
+        cList.push(cData);
+        props.storeDndCard(cList);
+        setState({
+            tasks: cList
+        });
+        localStorage.setItem("dndCards", JSON.stringify(cList));
+    }
+
+    const onAddTestedTask = (cData) => {
+        let cList = Object.assign([], props.dndCardsList);
+        cData.email = props.loginUser[0].email;
+        cData.id = "T" + uuid().slice(0, 2);
+        cData.status = "tested";
+        let userExist = cList.findIndex((item) => { return item.email === cData.email });
+        if (userExist === -1) {
+            toast.info("First card added to the login user!!", {
+                position: "bottom-left", autoClose: 3000
+            });
+        }
+        else {
+            toast.info("New card to the login user - with status:Tested - added!!", {
                 position: "bottom-left", autoClose: 3000
             });
         }
@@ -142,74 +192,78 @@ function Dnd(props) {
 
     return (
         <div>
-            <Navbar />
-            <div className='add-header'>
-                <button title="add first task" onClick={() => setFirstTask(true)}>Add Task</button>
+            <Navbar isActive={true}/>
+
+            <div className="container-drag">
+                <div className='todo-dnd' onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, "todo")}>
+                    <span className="task-header">TO DO</span>
+                    {tasks.todo}
+                    <div className='tasks-footer-butn'>
+                        <button className='btn' title="add card-todo" onClick={() => setShowTodoTask(true)}>Add a card...</button>
+                    </div>
+                    {
+                        showTodoTask ?
+                            <AddTodoTask onClose={() => setShowTodoTask(false)}
+                                onAddTodoTask={onAddTodoTask}
+                            />
+                            : null
+                    }
+                </div>
+
+                <div className="wip"
+                    onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, "wip")}>
+                    <span className="task-header">IN PROGRESS</span>
+                    {tasks.wip}
+                    <div className='tasks-footer-butn'>
+                        <button className='btn' title="add card-doing" onClick={() => setShowDoingTask(true)}>Add a card...</button>
+                    </div>
+                    {
+                        showDoingTask ?
+                            <AddDoingTask onClose={() => setShowDoingTask(false)}
+                                onAddDoingTask={onAddDoingTask}
+                            />
+                            : null
+                    }
+                </div>
+
+                <div className="done-dnd"
+                    onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, "done")}>
+                    <span className="task-header">COMPLETED</span>
+                    {tasks.done}
+                    <div className='tasks-footer-butn'>
+                        <button className='btn' title="add card-done" onClick={() => setShowDoneTask(true)}>Add a card...</button>
+                    </div>
+                    {
+                        showDoneTask ?
+                            <AddDoneTask onClose={() => setShowDoneTask(false)}
+                                onAddDoneTask={onAddDoneTask}
+                            />
+                            : null
+                    }
+                </div>
+
+                <div className="tested-dnd"
+                    onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, "tested")}>
+                    <span className="task-header">TESTED</span>
+                    {tasks.tested}
+                    <div className='tasks-footer-butn'>
+                        <button className='btn' title="add card-tested" onClick={() => setShowTestedTask(true)}>Add a card...</button>
+                    </div>
+                    {
+                        showTestedTask ?
+                            <AddTestedTask onClose={() => setShowTestedTask(false)}
+                                onAddTestedTask={onAddTestedTask}
+                            />
+                            : null
+                    }
+                </div>
+                <ToastContainer />
             </div>
-            {
-                showFirstTask ?
-                    <AddTodoTask onClose={() => setFirstTask(false)}
-                        onAddTodoTask={onAddTodoTask}
-                    />
-                    : null
-            }
 
-            {initialState != null ?
-                (<div className="container-drag">
-                    <div className='todo-dnd' onDragOver={(e) => onDragOver(e)}
-                        onDrop={(e) => onDrop(e, "todo")}>
-                        <span className="task-header">TO DO</span>
-                        {tasks.todo}
-                        <div className='tasks-footer-butn'>
-                            <button className='btn' title="add card-todo" onClick={() => setShowTodoTask(true)}>Add a card...</button>
-                        </div>
-                        {
-                            showTodoTask ?
-                                <AddTodoTask onClose={() => setShowTodoTask(false)}
-                                    onAddTodoTask={onAddTodoTask}
-                                />
-                                : null
-                        }
-                    </div>
-
-                    <div className="wip"
-                        onDragOver={(e) => onDragOver(e)}
-                        onDrop={(e) => onDrop(e, "wip")}>
-                        <span className="task-header">WIP</span>
-                        {tasks.wip}
-                        <div className='tasks-footer-butn'>
-                            <button className='btn' title="add card-doing" onClick={() => setShowDoingTask(true)}>Add a card...</button>
-                        </div>
-                        {
-                            showDoingTask ?
-                                <AddDoingTask onClose={() => setShowDoingTask(false)}
-                                    onAddDoingTask={onAddDoingTask}
-                                />
-                                : null
-                        }
-                    </div>
-
-                    <div className="done-dnd"
-                        onDragOver={(e) => onDragOver(e)}
-                        onDrop={(e) => onDrop(e, "done")}>
-                        <span className="task-header">COMPLETED</span>
-                        {tasks.done}
-                        <div className='tasks-footer-butn'>
-                            <button className='btn' title="add card-todo">Add a card...</button>
-                        </div>
-                    </div>
-
-                    <div className="tested-dnd"
-                        onDragOver={(e) => onDragOver(e)}
-                        onDrop={(e) => onDrop(e, "tested")}>
-                        <span className="task-header">TESTED</span>
-                        {tasks.tested}
-                        <div className='tasks-footer-butn'>
-                            <button className='btn' title="add card-todo">Add a card...</button>
-                        </div>
-                    </div>
-                    <ToastContainer />
-                </div>) : <NothingToShow />}
         </div>
     );
 }

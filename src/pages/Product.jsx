@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from '../components/Navbar';
 import SortableTable from '../components/SortableTable';
-// import TableData from "../components/TableData.json";
 
 function Product() {
     const [products, setProducts] = useState([]);

@@ -1,24 +1,4 @@
-.add-header {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 20px;
-    font-family: myFirstFont, Arial, Helvetica, sans-serif;
-}
-
-.add-header button {
-    background-color: rgba(33, 137, 235, 0.63);
-    border: none;
-    width: 110px;
-    height: 40px;
-    cursor: pointer;
-    border-radius: 15px;
-    font-family: myFirstFont, Arial, Helvetica, sans-serif;
-}
-
+/* DND Dasboard styles */
 .container-drag {
     text-align: center;
     min-height: max-content;
@@ -28,8 +8,10 @@
     display: inline-block;
     background-color: rgb(135, 178, 235);
     width: 100%;
-    height: 30px;
-    text-align: center;
+    height: 45px;
+    text-align:center;
+    font-family: myFirstFont, Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .wip {

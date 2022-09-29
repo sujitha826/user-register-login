@@ -1,24 +1,28 @@
 .add_page {
+    position: absolute;
+    background: rgba(7, 8, 9, 0.476);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 60%;
-    left: 40%;
-    transform: translate(-50%, -50%);
 }
 
 .add_container {
-    width: 300px;
-    height: 300px;
-    color: rgb(255, 255, 255);
+    height: 30%;
+    width: 30%;
+    min-height: 300px;
+    min-width: 300px;
+    color: black;
     border-radius: 16px;
-    background: rgba(76, 175, 175, 1);    
+    background: burlywood;
 }
 
 .add_header {
     height: 50px;
-    background: rgb(46, 143, 143);
+    background: bisque;
     overflow: hidden;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
@@ -45,9 +49,9 @@
 }
 
 .add_actions {
-    position: absolute;
-    bottom: 3px;
-    margin-bottom: 25px;
+    position: relative;
+    bottom: 2px;
+    margin-bottom: 2px;
     width: 80%;
     align-items: center;
     display: flex;
@@ -56,7 +60,7 @@
 }
 
 .butn {
-    margin-top: 6px;
+    margin-top: 25px;
     cursor: pointer;
     font-weight: 400;
     padding: 11px 28px;
@@ -74,7 +78,7 @@
 }
 
 .can_btn {
-    margin-top: 6px;
+    margin-top: 25px;
     cursor: pointer;
     font-weight: 400;
     padding: 11px 28px;

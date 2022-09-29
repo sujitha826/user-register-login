@@ -3,14 +3,28 @@ import { useCallback, useState } from "react";
 function sortData({ tableData, sortKey, reverse }) {
     if (!sortKey) return tableData;
 
-    const sortedData = tableData.sort((a, b) => {
-        return a[sortKey] > b[sortKey] ? 1 : -1;
-    });
-
-    if (reverse) {
-        return sortedData.reverse();
+    if (sortKey === "price") {
+        let sortedData = tableData.sort((a, b) => {
+            return Number(a[sortKey]) > Number(b[sortKey]) ? 1 : -1;
+        });
+        if (reverse) {
+            return sortedData.reverse();
+        }
+        return sortedData;
     }
-    return sortedData;
+    else {
+        let sortedData = tableData.sort((a, b) => {
+            return a[sortKey] > b[sortKey] ? 1 : -1;
+        });
+        if (reverse) {
+            return sortedData.reverse();
+        }
+        return sortedData;
+    }
+    // if (reverse) {
+    //     return sortedData.reverse();
+    // }
+    // return sortedData;
 }
 
 
