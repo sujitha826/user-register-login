@@ -8,6 +8,7 @@
   src: local('myFirstFont'), url(./assets/Roboto-Regular.ttf) format('opentype');
 }
 
+/* Navbar styles */
 .header-base {
   height: 70px;
   display: flex;
@@ -17,31 +18,37 @@
 }
 
 .header-base button {
-  height: 60%;
-  margin-left: 20px;
-  width: 150px;
+  height: 70%;
+  width: 140px;
   border: none;
-  color: blue;
   background-color: white;
-  font-weight: 400;
-  font-size: 30px;
-  font-family: myFirstFont, Arial, Helvetica, sans-serif;
-}
-
-.header-base button:active {
-  border-bottom: 2px solid blue;
-  transition: width 2s;
-  -webkit-transition: width 2s;
-  outline: none;
-  box-shadow: none;
 }
 
 .header-base #logout {
   color: rgba(221, 29, 29, 0.952);
-  font-size: 25px;
-  margin-left: 800px;
+  font-size: 20px;
+  margin-left: 850px;
 }
 
+.nav-link {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 2px 10px;
+  text-decoration: none;
+  color: blue;
+  font-weight: 400;
+  font-size: 30px;
+  border-bottom: 3px solid transparent;
+  font-family: myFirstFont, Arial, Helvetica, sans-serif;
+  margin-left: 10px;
+}
+
+.nav-link.active {
+  border-bottom: 3px solid blue;
+}
+
+/* Product page styles */
 .product-base {
   margin: 0 0;
 }
@@ -86,6 +93,7 @@
   background-color: whitesmoke;
 }
 
+/* Register and Login styles */
 .App-logo {
   display: flex;
   justify-content: flex-start;
@@ -180,7 +188,29 @@
   transform: rotate(180deg);
 }
 
-/* Not Found */
+.reg-right {
+  margin-left: 500px;
+}
+
+.login-right {
+  margin-left: 500px;
+}
+
+.reg-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.invalid {
+  color: red;
+  text-align: left;
+}
+
+/* Not Found page */
 .not-found {
   display: flex;
   flex-direction: column;
@@ -206,25 +236,4 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
-
-.reg-right {
-  margin-left: 500px;
-}
-
-.login-right {
-  margin-left: 500px;
-}
-
-.reg-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  margin-left: 50px;
-  margin-top: 20px;
-}
-
-.invalid {
-  color: red;
 }

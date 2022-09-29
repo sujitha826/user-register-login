@@ -28,13 +28,13 @@ function Dnd(props) {
         cData.status = "todo";
         let userExist = cList.findIndex((item) => { return item.email === cData.email });
         if (userExist === -1) {
-            toast.info("First card added to the login user !!!", {
-                position: "bottom-left", autoClose: 3000
+            toast.info("First card added to the login user!!", {
+                position: "bottom-left", autoClose: 2000
             });
         }
         else {
             toast.info("New card to the login user - With status : To Do- added!!!", {
-                position: "bottom-left", autoClose: 3000
+                position: "bottom-left", autoClose: 2000
             });
         }
         cList.push(cData);
@@ -53,12 +53,12 @@ function Dnd(props) {
         let userExist = cList.findIndex((item) => { return item.email === cData.email });
         if (userExist === -1) {
             toast.info("First card added to the login user!!", {
-                position: "bottom-left", autoClose: 3000
+                position: "bottom-left", autoClose: 2000
             });
         }
         else {
             toast.info("New card to the login user with status:In progress - added!!!", {
-                position: "bottom-left", autoClose: 3000
+                position: "bottom-left", autoClose: 2000
             });
         }
         cList.push(cData);
@@ -77,12 +77,12 @@ function Dnd(props) {
         let userExist = cList.findIndex((item) => { return item.email === cData.email });
         if (userExist === -1) {
             toast.info("First card added to the login user!!", {
-                position: "bottom-left", autoClose: 3000
+                position: "bottom-left", autoClose: 2000
             });
         }
         else {
             toast.info("New card to the login user - with status:Done - added!!!", {
-                position: "bottom-left", autoClose: 3000
+                position: "bottom-left", autoClose: 2000
             });
         }
         cList.push(cData);
@@ -101,12 +101,12 @@ function Dnd(props) {
         let userExist = cList.findIndex((item) => { return item.email === cData.email });
         if (userExist === -1) {
             toast.info("First card added to the login user!!", {
-                position: "bottom-left", autoClose: 3000
+                position: "bottom-left", autoClose: 2000
             });
         }
         else {
             toast.info("New card to the login user - with status:Tested - added!!", {
-                position: "bottom-left", autoClose: 3000
+                position: "bottom-left", autoClose: 2000
             });
         }
         cList.push(cData);
@@ -119,12 +119,12 @@ function Dnd(props) {
 
     const allUserTasks = props.dndCardsList.filter((each) => each.email === props.loginUser[0].email);
     let tasksObj = { tasks: allUserTasks };
-    console.log(tasksObj);
+    //console.log(tasksObj);
     const initialState = allUserTasks[0] ? tasksObj : null;
 
     const [state, setState] = useState(initialState);
     const onDragStart = (e, id) => {
-        console.log('dragstart:', id);
+        // console.log('dragstart:', id);
         e.dataTransfer.setData("id", id);
     }
 
@@ -192,7 +192,7 @@ function Dnd(props) {
 
     return (
         <div>
-            <Navbar isActive={true}/>
+            <Navbar />
 
             <div className="container-drag">
                 <div className='todo-dnd' onDragOver={(e) => onDragOver(e)}
