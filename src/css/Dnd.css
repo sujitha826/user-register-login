@@ -2,6 +2,7 @@
 .container-drag {
     text-align: center;
     min-height: max-content;
+    background-color: aliceblue;
 }
 
 .task-header {
@@ -9,59 +10,63 @@
     background-color: rgb(135, 178, 235);
     width: 100%;
     height: 45px;
-    text-align:center;
+    text-align: center;
     font-family: myFirstFont, Arial, Helvetica, sans-serif;
     font-size: 20px;
+    border-radius: 5px;
 }
 
 .wip {
     position: absolute;
-    width: 310px;
-    height: 100vh;
+    width: 320px;
+    min-height: 100vh;
     left: 350px;
     top: 10;
     background-color: #9e9e9e5e;
-    border-right: 1px dotted;
+    border-radius: 5px;
 }
 
 .todo-dnd {
     position: absolute;
-    width: 310px;
-    height: 100vh;
-    left: 0;
+    width: 320px;
+    min-height: 100vh;
+    left: 3px;
     top: 5;
     background-color: #9e9e9e5e;
-    border-left: 1px dotted;
+    border-radius: 5px;
 }
 
 .done-dnd {
     position: absolute;
-    width: 310px;
-    height: 100vh;
+    width: 320px;
+    min-height: 100vh;
     right: 340px;
     top: 10;
     background-color: #9e9e9e5e;
-    border-left: 1px dotted;
+    border-radius: 5px;
 }
 
 .tested-dnd {
     position: absolute;
-    width: 310px;
-    height: 100vh;
-    right: 0;
+    width: 320px;
+    min-height: 100vh;
+    right: 3px;
     top: 5;
     background-color: #9e9e9e5e;
-    border-left: 1px dotted;
+    border-radius: 5px;
 }
 
 .draggable {
     width: 250px;
-    height: 200px;
+    height: auto;
     color: black;
     margin: 8px auto;
     line-height: 1em;
     text-align: center;
     background-color: rgb(127, 204, 255);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 8px;
 }
 
 .dnd-image {
@@ -69,4 +74,10 @@
     margin-left: 10px;
     margin-right: 70px;
     margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+    .todo-dnd .done-dnd .wip .tested-dnd {
+        min-width: 100%;
+    }
 }

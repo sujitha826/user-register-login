@@ -145,7 +145,7 @@ function Dnd(props) {
             ...state,
             tasks
         });
-        console.log(JSON.stringify(state.tasks));
+        console.log("After drop " + JSON.stringify(state.tasks));               // appears in the order of task id
         localStorage.setItem("dndCards", JSON.stringify(state.tasks));
     }
 
@@ -174,15 +174,12 @@ function Dnd(props) {
                     onDragStart={(e) => onDragStart(e, t.id)}
                     draggable
                     className="draggable"
-                    style={{ backgroundColor: "blue" }}
                 >
-                    <div className='clear-icon-dnd'>
-                        <img src={tested} className="dnd-image" alt=""></img>
-                        <ClearIcon
-                            style={{ color: 'red', cursor: 'pointer', fontSize: "30px", border: "none", marginBottom: "35px" }}
-                            onClick={() => onDelete(t.id)} />
-                    </div>
-                    <h3>{t.title}</h3>
+                    <img src={tested} className="dnd-image" alt=""></img>
+                    <ClearIcon
+                        style={{ color: 'red', cursor: 'pointer', fontSize: "30px", border: "none", marginBottom: "40px" }}
+                        onClick={() => onDelete(t.id)} />
+                    <h4>{t.title}</h4>
                     <p>Details: {t.desc}</p>
                 </div>
             );
@@ -193,7 +190,6 @@ function Dnd(props) {
     return (
         <div>
             <Navbar />
-
             <div className="container-drag">
                 <div className='todo-dnd' onDragOver={(e) => onDragOver(e)}
                     onDrop={(e) => onDrop(e, "todo")}>
@@ -263,7 +259,6 @@ function Dnd(props) {
                 </div>
                 <ToastContainer />
             </div>
-
         </div>
     );
 }
