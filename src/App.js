@@ -7,7 +7,6 @@ import Error from './pages/Error';
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Product from "./pages/Product";
-import RegisterWithLogo from "./components/Register";
 import Registration from "./components/Registration";
 import Dnd from "./components/Dnd";
 
