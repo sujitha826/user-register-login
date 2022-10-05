@@ -13,6 +13,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import { connect } from 'react-redux';
 import { storeLoginUser } from '../redux/Actions';
 import login_bg from '../assets/login_bg.jpg';
+import WithLogoAndImage from '../components/HocLogo';
 
 const Login = (props) => {
 
@@ -150,4 +151,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+// export default connect(mapStateToProps, mapDispatchToProps)(WithLogoAndImage(Login));
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

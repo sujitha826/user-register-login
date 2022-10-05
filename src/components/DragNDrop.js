@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/Dnd.css';
+// import '../css/Dnd.css';
 
 export default function DragNDrop(props) {
     const initialState = props.tasks[0] ? props.tasks :

@@ -124,7 +124,7 @@ function Dnd(props) {
 
     const [state, setState] = useState(initialState);
     const onDragStart = (e, id) => {
-        // console.log('dragstart:', id);
+        console.log('dragstart:', id);
         e.dataTransfer.setData("id", id);
     }
 
@@ -145,7 +145,7 @@ function Dnd(props) {
             ...state,
             tasks
         });
-        console.log("After drop " + JSON.stringify(state.tasks));               // appears in the order of task id
+        // console.log("After drop " + JSON.stringify(state.tasks));               // appears in the order of task id
         localStorage.setItem("dndCards", JSON.stringify(state.tasks));
     }
 
@@ -190,7 +190,7 @@ function Dnd(props) {
     return (
         <div>
             <Navbar />
-            <div className="container-drag">
+            <div className="container-dnd" style={{ backgroundColor: "Highlight" }}>
                 <div className='todo-dnd' onDragOver={(e) => onDragOver(e)}
                     onDrop={(e) => onDrop(e, "todo")}>
                     <span className="task-header">TO DO</span>
@@ -257,8 +257,8 @@ function Dnd(props) {
                             : null
                     }
                 </div>
-                <ToastContainer />
             </div>
+            <ToastContainer />
         </div>
     );
 }

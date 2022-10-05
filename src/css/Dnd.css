@@ -1,8 +1,6 @@
 /* DND Dasboard styles */
-.container-drag {
+.container-dnd {
     text-align: center;
-    min-height: max-content;
-    background-color: aliceblue;
 }
 
 .task-header {

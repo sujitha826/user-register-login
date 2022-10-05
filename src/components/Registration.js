@@ -10,6 +10,7 @@ import logo from '../assets/logo.jpg';
 import login_bg from '../assets/login_bg.jpg';
 import { storeUsersList } from '../redux/Actions';
 import { validateEmail, validatePassword, validateUsername } from "../validators/InputValidators";
+import WithLogoAndImage from "./HocLogo";
 
 const Registration = (props) => {
 
@@ -144,4 +145,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+// export default connect(mapStateToProps, mapDispatchToProps)(WithLogoAndImage(Registration));
 export default connect(mapStateToProps, mapDispatchToProps)(Registration);
