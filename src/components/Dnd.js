@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,6 +21,15 @@ function Dnd(props) {
     const [showDoingTask, setShowDoingTask] = useState(false);
     const [showTestedTask, setShowTestedTask] = useState(false);
 
+    const allUserTasks = props.dndCardsList.filter((each) => each.email === props.loginUser[0].email);
+    let tasksObj = { tasks: allUserTasks };
+    const initialState = allUserTasks[0] ? tasksObj : null;
+    const [state, setState] = useState(initialState);
+
+    useEffect(() => {
+        setState({ tasks: allUserTasks });
+    }, [props.dndCardsList]);
+
     const onAddTodoTask = (cData) => {
         let cList = Object.assign([], props.dndCardsList);
         cData.email = props.loginUser[0].email;
@@ -39,9 +48,9 @@ function Dnd(props) {
         }
         cList.push(cData);
         props.storeDndCard(cList);
-        setState({
-            tasks: cList
-        });
+        // setState({
+        //     tasks: allUserTasks
+        // });
         localStorage.setItem("dndCards", JSON.stringify(cList));
     }
 
@@ -63,9 +72,9 @@ function Dnd(props) {
         }
         cList.push(cData);
         props.storeDndCard(cList);
-        setState({
-            tasks: cList
-        });
+        // setState({
+        //     tasks: cList
+        // });
         localStorage.setItem("dndCards", JSON.stringify(cList));
     }
 
@@ -87,9 +96,9 @@ function Dnd(props) {
         }
         cList.push(cData);
         props.storeDndCard(cList);
-        setState({
-            tasks: cList
-        });
+        // setState({
+        //     tasks: cList
+        // });
         localStorage.setItem("dndCards", JSON.stringify(cList));
     }
 
@@ -111,18 +120,12 @@ function Dnd(props) {
         }
         cList.push(cData);
         props.storeDndCard(cList);
-        setState({
-            tasks: cList
-        });
+        // setState({
+        //     tasks: cList
+        // });
         localStorage.setItem("dndCards", JSON.stringify(cList));
     }
 
-    const allUserTasks = props.dndCardsList.filter((each) => each.email === props.loginUser[0].email);
-    let tasksObj = { tasks: allUserTasks };
-    //console.log(tasksObj);
-    const initialState = allUserTasks[0] ? tasksObj : null;
-
-    const [state, setState] = useState(initialState);
     const onDragStart = (e, id) => {
         console.log('dragstart:', id);
         e.dataTransfer.setData("id", id);
@@ -159,12 +162,15 @@ function Dnd(props) {
     const onDelete = (id) => {
         console.log("Deleting task with id: " + id);
         let newTasks = state.tasks.filter((task) => task.id !== id);
-        console.log(newTasks);
-        props.storeDndCard(newTasks);
+        console.log(newTasks);                                                   // tasks of logged in user
         setState({
             tasks: newTasks
         });
-        localStorage.setItem("dndCards", JSON.stringify(newTasks));
+
+        let cList = Object.assign([], props.dndCardsList);                       // Main list of all users
+        let newList = cList.filter((task) => task.id !== id);
+        props.storeDndCard(newList);
+        localStorage.setItem("dndCards", JSON.stringify(newList));
     }
 
     if (state !== null) {

@@ -72,7 +72,7 @@ const Registration = (props) => {
                 <h2 style={{ color: "red", display: "flex", justifyContent: "flex-start", marginLeft: "130px" }}> Registration </h2>
                 {!login ? (
                     <form onSubmit={handleFormSubmit}>
-                        <div className="form-group" style={{ width: "50%", marginLeft: "60px", marginTop: "20px" }}>
+                        <div className="form-group" style={{ width: "50%", marginLeft: "90px", marginTop: "20px" }}>
                             <label>Email</label>
                             <input
                                 type="email"
@@ -83,7 +83,7 @@ const Registration = (props) => {
                             {emailError && <div className="invalid">Please enter a valid email</div>}
                         </div>
 
-                        <div className="form-group" style={{ width: "50%", marginLeft: "60px", marginTop: "20px" }}>
+                        <div className="form-group" style={{ width: "50%", marginLeft: "90px", marginTop: "20px" }}>
                             <label>Preferrred Username.</label>
                             <input
                                 type="text"
@@ -94,7 +94,7 @@ const Registration = (props) => {
                             {usernameError && <div className="invalid">Username must be between 3 and 10 characters.</div>}
                         </div>
 
-                        <div className="form-group" style={{ width: "50%", marginLeft: "60px", marginTop: "20px" }}>
+                        <div className="form-group" style={{ width: "50%", marginLeft: "90px", marginTop: "20px" }}>
                             <label>Password</label>
                             <input
                                 type="password"
@@ -106,10 +106,10 @@ const Registration = (props) => {
                         </div>
 
                         <div className='action-container-reg'>
-                            <button className='submit-butn' onClick={handleFormSubmit} style={{ background: "rgb(194, 47, 47)", width: "50%", marginLeft: "60px", marginTop: "20px" }} type="submit">
+                            <button className='submit-butn' onClick={handleFormSubmit} style={{ background: "rgb(194, 47, 47)", width: "50%", marginLeft: "90px", marginTop: "20px" }} type="submit">
                                 SUBMIT
                             </button>
-                            <p className='message-register' style={{ marginLeft: "90px" }}>
+                            <p className='message-register' style={{ marginLeft: "95px" }}>
                                 Already registered? <Link to="/"> <LoginIcon /> Login</Link>
                             </p>
                         </div>
@@ -124,8 +124,8 @@ const Registration = (props) => {
                 }
             </div>
 
-            <div className="right_data" style={{ width: "100%", height: "100%" }}>
-                <img src={login_bg} style={{ width: "85%", height: "100%", marginLeft: "75px" }} alt="" />
+            <div className="right_data" style={{ width: "140%", height: "100%" }}>
+                <img src={login_bg} style={{ width: "90%", height: "100%", marginLeft: "240px" }} alt="" />
             </div>
 
         </div>
@@ -145,5 +145,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(WithLogoAndImage(Registration));
-export default connect(mapStateToProps, mapDispatchToProps)(Registration);
+export default (WithLogoAndImage(connect(mapStateToProps, mapDispatchToProps)(Registration)));
+// export default connect(mapStateToProps, mapDispatchToProps)(Registration);
